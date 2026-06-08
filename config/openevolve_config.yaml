@@ -1,0 +1,63 @@
+# OpenEvolve configuration for AgentSociety CrewAI prompt evolution
+# Run: make evolve   or see Makefile
+
+max_iterations: 50
+checkpoint_interval: 5
+log_level: "INFO"
+random_seed: 42
+
+diff_based_evolution: false
+language: "yaml"
+max_code_length: 10000
+
+llm:
+  models:
+    - name: "minimaxai/minimax-m2.7"
+      weight: 1.0
+      api_base: "https://integrate.api.nvidia.com/v1"
+      api_key: null
+      temperature: 0.7
+      max_tokens: 4096
+      timeout: 120
+      retries: 3
+      retry_delay: 30
+
+prompt:
+  system_message: |
+    You are an expert prompt engineer for multi-agent review simulation systems.
+
+    The pipeline prefetches Yelp data before the crew runs. Two agents execute sequentially:
+    1. psychological_analyst — compatibility / rating-habit analysis from injected summaries
+    2. behavior_simulator — outputs one JSON object {"stars": float, "review": string}
+
+    Rewrite the EVOLVE-BLOCK section to improve star accuracy (vs ground truth) and review
+    fidelity (tone, sentiment, vocabulary) while staying grounded in provided data.
+
+    Rules:
+    - Keep valid YAML. Do NOT change any `llm:` or `temperature:` fields.
+    - Do not instruct agents to call tools; data is already in the task prompts.
+    - Return the complete YAML file including EVOLVE-BLOCK-START and EVOLVE-BLOCK-END markers.
+    - Never put a lone `yaml` line at the top. Do not wrap output in markdown code fences.
+    - For role/goal/backstory, always use YAML block scalars (`role: >` / `goal: >` / `backstory: >`).
+    - Never use inline braces like goal: {"stars": 4} — put JSON examples inside folded `>` text only.
+  num_top_programs: 3
+  num_diverse_programs: 2
+  include_artifacts: false
+
+database:
+  population_size: 50
+  archive_size: 20
+  num_islands: 3
+  elite_selection_ratio: 0.2
+  exploitation_ratio: 0.7
+  migration_interval: 10
+  migration_rate: 0.1
+  feature_dimensions:
+    - "complexity"
+    - "diversity"
+
+evaluator:
+  timeout: 900
+  max_retries: 2
+  parallel_evaluations: 1
+  cascade_evaluation: false
