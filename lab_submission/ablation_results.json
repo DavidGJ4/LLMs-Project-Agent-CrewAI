@@ -1,0 +1,51 @@
+{
+  "mode": "mock",
+  "tasks": 1,
+  "interpretation": "Compare seed vs evolved to isolate OpenEvolve contribution; no_calibration / no_repair isolate adapter engineering.",
+  "variants": [
+    {
+      "variant": "seed_prompts",
+      "agents_yaml": "C:\\Users\\david\\OneDrive\\Documents\\LLMS-PROJECT\\config\\agents_evolving.yaml",
+      "disable_calibration": false,
+      "disable_repair": false,
+      "metrics": {
+        "preference_estimation": 1.0,
+        "review_generation": 0.7299013111679349,
+        "overall_quality": 0.8649506555839674
+      }
+    },
+    {
+      "variant": "evolved_prompts",
+      "agents_yaml": "C:\\Users\\david\\OneDrive\\Documents\\LLMS-PROJECT\\lab_submission\\best_program.yaml",
+      "disable_calibration": false,
+      "disable_repair": false,
+      "metrics": {
+        "preference_estimation": 1.0,
+        "review_generation": 0.7299013111679349,
+        "overall_quality": 0.8649506555839674
+      }
+    },
+    {
+      "variant": "evolved_no_calibration",
+      "agents_yaml": "C:\\Users\\david\\OneDrive\\Documents\\LLMS-PROJECT\\lab_submission\\best_program.yaml",
+      "disable_calibration": true,
+      "disable_repair": false,
+      "metrics": {
+        "preference_estimation": 1.0,
+        "review_generation": 0.7299013111679349,
+        "overall_quality": 0.8649506555839674
+      }
+    },
+    {
+      "variant": "evolved_no_repair",
+      "agents_yaml": "C:\\Users\\david\\OneDrive\\Documents\\LLMS-PROJECT\\lab_submission\\best_program.yaml",
+      "disable_calibration": false,
+      "disable_repair": true,
+      "metrics": {
+        "preference_estimation": 1.0,
+        "review_generation": 0.7299013111679349,
+        "overall_quality": 0.8649506555839674
+      }
+    }
+  ]
+}

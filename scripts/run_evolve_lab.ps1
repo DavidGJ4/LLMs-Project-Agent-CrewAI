@@ -1,6 +1,6 @@
-# Lab Step 5: evolve 30 iterations x 1 task (PowerShell; no make required)
+# Lab Step 5: evolve 50 iterations x 1 task (PowerShell; no make required)
 param(
-    [int]$Iters = 30,
+    [int]$Iters = 50,
     [int]$Tasks = 1,
     [string]$Output = "config/openevolve_output"
 )

@@ -43,6 +43,17 @@ Optional **knowledge / RAG**: when `CREWAI_ENABLE_KNOWLEDGE=true`, `SimulationCr
 
 ---
 
+## Final project / OpenEvolve lab
+
+- **Full report:** [`docs/FINAL_PROJECT_REPORT.md`](docs/FINAL_PROJECT_REPORT.md)
+- **Evolution analysis:** [`docs/evolution_report.md`](docs/evolution_report.md)
+- **Submission bundle:** `lab_submission/` (run `make lab-package` after evolution)
+
+```bash
+make evolve-lab      # 50 iterations × 1 task (rubric)
+make lab-package     # copy best + evolution report + holdout + ablation
+```
+
 ## Workflow
 
 Typical end-to-end flow:

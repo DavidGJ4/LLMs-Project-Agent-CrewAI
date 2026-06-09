@@ -327,7 +327,12 @@ class CrewAISimulationAgent(SimulationAgent):
 
         item_avg_stars = _parse_item_avg_stars(item_summary)
         prior = _star_prior(user_avg, item_avg_stars, fallback_rating)
-        history_with_prior = history_summary + _calibration_block(prior)
+        disable_calibration = os.environ.get("CREWAI_DISABLE_CALIBRATION", "").strip().lower() in {
+            "1", "true", "yes", "on",
+        }
+        history_with_prior = history_summary + (
+            "" if disable_calibration else _calibration_block(prior)
+        )
 
         initial_state = InferenceState(
             user_id=user_id,
@@ -347,9 +352,12 @@ class CrewAISimulationAgent(SimulationAgent):
         stars = _snap_star_bucket(final_state_dict.get("predicted_rating", prior))
         review = str(final_state_dict.get("generated_review", "")) or "No review generated."
 
+        disable_repair = os.environ.get("CREWAI_DISABLE_REPAIR", "").strip().lower() in {
+            "1", "true", "yes", "on",
+        }
         # One controlled retry: if review sentiment obviously conflicts with stars,
         # run a stricter repair pass that keeps facts/tone constraints.
-        if _is_star_sentiment_conflict(stars, review):
+        if not disable_repair and _is_star_sentiment_conflict(stars, review):
             repair_hint = (
                 "\n\nCONSISTENCY_REPAIR_MODE=ON\n"
                 f"Previous predicted stars: {stars:.1f}\n"

@@ -1,0 +1,240 @@
+{
+  "generated_at": "2026-06-09T02:39:48.046183+00:00",
+  "population_size": 234,
+  "best_program": {
+    "id": "9f6c8489-9f6e-4bed-932a-8445e859b781",
+    "combined_score": 0.9668,
+    "iteration_found": 15,
+    "generation": 2,
+    "preference_note": "Best score may plateau early \u2014 see fitness_series."
+  },
+  "best_program_info": {
+    "id": "8d88518a-8ea8-4df7-b752-d711401922d4",
+    "generation": 1,
+    "iteration": 1,
+    "timestamp": 1780371133.2895057,
+    "parent_id": "b4b5c4e0-1bd8-4866-bf66-f0c0e8f825f8",
+    "metrics": {
+      "combined_score": 0.9609419429515256
+    },
+    "language": "yaml",
+    "saved_at": 1780374461.665384
+  },
+  "fitness_series": [
+    {
+      "iteration": 0,
+      "best_combined_score": 0.9668
+    },
+    {
+      "iteration": 1,
+      "best_combined_score": 0.9609
+    },
+    {
+      "iteration": 2,
+      "best_combined_score": 0.9412
+    },
+    {
+      "iteration": 3,
+      "best_combined_score": 0.9498
+    },
+    {
+      "iteration": 4,
+      "best_combined_score": 0.9363
+    },
+    {
+      "iteration": 5,
+      "best_combined_score": 0.9438
+    },
+    {
+      "iteration": 6,
+      "best_combined_score": 0.9453
+    },
+    {
+      "iteration": 7,
+      "best_combined_score": 0.9618
+    },
+    {
+      "iteration": 8,
+      "best_combined_score": 0.9419
+    },
+    {
+      "iteration": 9,
+      "best_combined_score": 0.9429
+    },
+    {
+      "iteration": 10,
+      "best_combined_score": 0.9532
+    },
+    {
+      "iteration": 11,
+      "best_combined_score": 0.9578
+    },
+    {
+      "iteration": 12,
+      "best_combined_score": 0.9404
+    },
+    {
+      "iteration": 13,
+      "best_combined_score": 0.9436
+    },
+    {
+      "iteration": 14,
+      "best_combined_score": 0.944
+    },
+    {
+      "iteration": 15,
+      "best_combined_score": 0.9668
+    },
+    {
+      "iteration": 16,
+      "best_combined_score": 0.9469
+    },
+    {
+      "iteration": 17,
+      "best_combined_score": 0.9446
+    },
+    {
+      "iteration": 18,
+      "best_combined_score": 0.9585
+    },
+    {
+      "iteration": 19,
+      "best_combined_score": 0.9412
+    },
+    {
+      "iteration": 20,
+      "best_combined_score": 0.9593
+    },
+    {
+      "iteration": 21,
+      "best_combined_score": 0.9557
+    },
+    {
+      "iteration": 22,
+      "best_combined_score": 0.9403
+    },
+    {
+      "iteration": 23,
+      "best_combined_score": 0.9565
+    },
+    {
+      "iteration": 24,
+      "best_combined_score": 0.9467
+    },
+    {
+      "iteration": 25,
+      "best_combined_score": 0.9548
+    },
+    {
+      "iteration": 26,
+      "best_combined_score": 0.9616
+    },
+    {
+      "iteration": 27,
+      "best_combined_score": 0.9393
+    },
+    {
+      "iteration": 28,
+      "best_combined_score": 0.9483
+    },
+    {
+      "iteration": 29,
+      "best_combined_score": 0.9575
+    },
+    {
+      "iteration": 30,
+      "best_combined_score": 0.9554
+    }
+  ],
+  "convergence": {
+    "first_iteration_best": 0.9668,
+    "global_best": 0.9668,
+    "plateau_after_iteration": 15,
+    "interpretation": "High fitness often appears by iteration 1\u20132 because the fixed task protocol and adapter calibration provide a strong scaffold; evolution refines persona wording."
+  },
+  "map_elites": {
+    "num_islands": 3,
+    "archive_size": 20,
+    "last_iteration": 30,
+    "best_program_id": "8d88518a-8ea8-4df7-b752-d711401922d4"
+  },
+  "lineage_best_to_root": [
+    {
+      "id": "9f6c8489-9f6e-4bed-932a-8445e859b781",
+      "score": 0.9668,
+      "iteration_found": 15,
+      "generation": 2
+    },
+    {
+      "id": "41ff0200-5022-4f68-b0ba-13f3886330bb",
+      "score": 0.9498,
+      "iteration_found": 3,
+      "generation": 1
+    },
+    {
+      "id": "bb8cac81-04bf-4a79-8615-22aef43bb8a7",
+      "score": 0.9537,
+      "iteration_found": 0,
+      "generation": 0
+    }
+  ],
+  "hall_of_shame_bottom": [
+    {
+      "id": "de1b8994-1057-4d28-9e7b-b0e4a2b64f3e",
+      "score": 0.3892,
+      "iteration_found": 11,
+      "parent_id": "7552650e-6587-4ab7-8ed0-55364435f4d8"
+    },
+    {
+      "id": "7552650e-6587-4ab7-8ed0-55364435f4d8",
+      "score": 0.3892,
+      "iteration_found": 5,
+      "parent_id": "0efa7e89-2a64-4fd5-846b-355df4a2e3aa"
+    },
+    {
+      "id": "ccd204ba-472f-42d8-9a60-669d6e87938f",
+      "score": 0.3892,
+      "iteration_found": 12,
+      "parent_id": "41ff0200-5022-4f68-b0ba-13f3886330bb"
+    },
+    {
+      "id": "de1b8994-1057-4d28-9e7b-b0e4a2b64f3e",
+      "score": 0.3892,
+      "iteration_found": 11,
+      "parent_id": "7552650e-6587-4ab7-8ed0-55364435f4d8"
+    },
+    {
+      "id": "7552650e-6587-4ab7-8ed0-55364435f4d8",
+      "score": 0.3892,
+      "iteration_found": 5,
+      "parent_id": "0efa7e89-2a64-4fd5-846b-355df4a2e3aa"
+    },
+    {
+      "id": "ccd204ba-472f-42d8-9a60-669d6e87938f",
+      "score": 0.3892,
+      "iteration_found": 12,
+      "parent_id": "41ff0200-5022-4f68-b0ba-13f3886330bb"
+    },
+    {
+      "id": "de1b8994-1057-4d28-9e7b-b0e4a2b64f3e",
+      "score": 0.3892,
+      "iteration_found": 11,
+      "parent_id": "7552650e-6587-4ab7-8ed0-55364435f4d8"
+    },
+    {
+      "id": "7552650e-6587-4ab7-8ed0-55364435f4d8",
+      "score": 0.3892,
+      "iteration_found": 5,
+      "parent_id": "0efa7e89-2a64-4fd5-846b-355df4a2e3aa"
+    }
+  ],
+  "emergent_strategies": [
+    "Evolution lengthened analyst goals with explicit statistical citations.",
+    "Simulator goals added numeric star adjustment tied to user rating habits."
+  ],
+  "evolutionary_anti_patterns": [
+    "Mutating llm model id to minimax-m2 (invalid on NVIDIA NIM) causes 404 crew failures.",
+    "Broken YAML fences or inline JSON in goal fields \u2014 mitigated by repair_agents_yaml_file.",
+    "Relying on crew fallback reviews yields ~0.72 overall_quality despite OK star priors."
+  ]
+}

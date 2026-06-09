@@ -1,4 +1,4 @@
-# Copy best evolved YAML + score info into lab_submission/ for upload to course folder
+# Copy best evolved YAML + analysis artifacts into lab_submission/
 $ErrorActionPreference = "Stop"
 Set-Location (Split-Path $PSScriptRoot -Parent)
 
@@ -18,8 +18,15 @@ if (Test-Path $bestInfo) {
     Copy-Item $bestInfo (Join-Path $dest "best_program_info.json") -Force
 }
 
-# Optional: deploy to production agents.yaml
-Copy-Item $bestYaml "config/agents.yaml" -Force
+# Never deploy invalid NVIDIA model id (minimax-m2 -> 404)
+uv run python scripts/fix_agents_model_id.py `
+    (Join-Path $dest "best_program.yaml") `
+    "config/agents.yaml"
+
+if (Test-Path "config/openevolve_output/checkpoints") {
+    Write-Host "Regenerating evolution report..."
+    uv run python scripts/summarize_evolution.py
+}
 
 Write-Host "Copied to $dest/"
 Get-ChildItem $dest

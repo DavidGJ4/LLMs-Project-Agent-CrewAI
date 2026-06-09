@@ -39,8 +39,8 @@ evolve-test: ## Test evaluator only (no evolution loop)
 	$(UV) python openevolve_evaluator.py
 
 .PHONY: evolve-lab
-evolve-lab: ## Lab deliverable: 30 iter x 1 task
-	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run_evolve_lab.ps1 -Iters 30 -Tasks 1
+evolve-lab: ## Lab deliverable: 50 iter x 1 task (rubric)
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run_evolve_lab.ps1 -Iters 50 -Tasks 1
 
 .PHONY: visualize
 visualize: ## OpenEvolve visualizer at http://127.0.0.1:8080
@@ -49,6 +49,21 @@ visualize: ## OpenEvolve visualizer at http://127.0.0.1:8080
 .PHONY: submit-copy
 submit-copy: ## Copy best_program.yaml into lab_submission/
 	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/copy_lab_submission.ps1
+
+.PHONY: evolve-report
+evolve-report: ## Regenerate evolution_report.md + evolution_summary.json
+	$(UV) python scripts/summarize_evolution.py
+
+.PHONY: holdout
+holdout: ## Hold-out generalization eval (5 tasks)
+	$(UV) python scripts/run_holdout_eval.py --tasks 5
+
+.PHONY: ablation
+ablation: ## Ablation study (seed vs evolved vs adapter toggles)
+	$(UV) python scripts/run_ablation_study.py
+
+.PHONY: lab-package
+lab-package: submit-copy holdout ablation ## Full lab_submission bundle
 
 .PHONY: help
 help: ## List targets

@@ -1,24 +1,37 @@
-# Lab submission (OpenEvolve Steps 4–5)
+# Lab submission (OpenEvolve + Final Project)
 
-Upload the files in this folder to the course drop folder before **Monday 6/1 24:00**.
+Upload this folder (or link the GitHub repo) for course review.
 
-After evolution finishes, populate this directory:
+## Required files
+
+| File | Description |
+|------|-------------|
+| `best_program.yaml` | Evolved agent prompts (from OpenEvolve best) |
+| `best_program_info.json` | `combined_score` and metadata |
+| `evolution_report.md` | Evolution trajectory, lineage, emergent strategies |
+| `evolution_summary.json` | Machine-readable evolution analytics |
+
+## Recommended (strengthens grading)
+
+| File | Description |
+|------|-------------|
+| `holdout_results.json` | Generalization on tasks 1–N (not only evolution train task) |
+| `ablation_results.json` | Seed vs evolved vs adapter-off variants |
+| `w14-lab.png` or visualizer screenshot | OpenEvolve checkpoint / fitness plot |
+
+## Regenerate after evolution
 
 ```powershell
 .\scripts\copy_lab_submission.ps1
+uv run python scripts/run_holdout_eval.py --tasks 5
+uv run python scripts/run_ablation_study.py
 ```
-
-Expected files:
-
-- `best_program.yaml` — evolved agent prompts (from visualizer / `config/openevolve_output/best/`)
-- `best_program_info.json` — `combined_score` and metadata
-
-Optional screenshot: export from http://127.0.0.1:8080 showing `checkpoint_30` and top `combined_score`.
 
 ## For reviewers (GitHub)
 
-1. Copy `.env.example` → `.env` and add your own `OPENAI_API_KEY` + `OPENAI_API_BASE` (NVIDIA NIM: `https://integrate.api.nvidia.com/v1`).
-2. Use model `minimaxai/minimax-m2.7` in `config/agents.yaml` (already set in this repo).
-3. Install: `uv sync`
-4. Smoke test: `uv run --env-file .env python run_openevolve_test.py --tasks 1`
-5. **Dataset:** `dummy_tasks/` and `dummy_groundtruth/` are included. `dummy_dataset/` JSON/LMDB is not in git (too large); use the course `dummy_dataset` or rebuild from the official AgentSociety materials.
+1. Copy `.env.example` → `.env` — add NVIDIA `OPENAI_API_KEY` + `OPENAI_API_BASE=https://integrate.api.nvidia.com/v1`
+2. Model id must be **`minimaxai/minimax-m2.7`** (in `config/agents.yaml`)
+3. `uv sync` then `uv run --env-file .env python run_openevolve_test.py --tasks 1`
+4. Full write-up: `docs/FINAL_PROJECT_REPORT.md`
+
+**Note:** `dummy_dataset/` JSON is not in git (size); use course materials or local copy. `dummy_tasks/` and `dummy_groundtruth/` are included.

@@ -1,0 +1,51 @@
+{
+  "agents_yaml": "C:\\Users\\david\\OneDrive\\Documents\\LLMS-PROJECT\\config\\agents.yaml",
+  "mode": "mock",
+  "train_task_index": 0,
+  "train_metrics": {
+    "preference_estimation": 1.0,
+    "review_generation": 0.5650582500398624,
+    "overall_quality": 0.7825291250199312
+  },
+  "holdout_task_indices": [
+    1
+  ],
+  "holdout_metrics": {
+    "preference_estimation": 1.0,
+    "review_generation": 0.5650582500398624,
+    "overall_quality": 0.7825291250199312
+  },
+  "holdout_fallback_count": 0,
+  "all_tasks_metrics": {
+    "preference_estimation": 1.0,
+    "review_generation": 0.5684058053526329,
+    "overall_quality": 0.7842029026763164
+  },
+  "per_task": [
+    {
+      "task_index": 0,
+      "user_id": "JTqQ9C9S2Qc8_aHtO1965g",
+      "item_id": "QGYzYUMsQe6k7__LD91E5w",
+      "output": {
+        "stars": 4.0,
+        "review": "[Mock holdout] Solid spot, would return."
+      },
+      "elapsed_sec": 0.3,
+      "error": null,
+      "crew_fallback": false
+    },
+    {
+      "task_index": 1,
+      "user_id": "mLwKdFW96yof7-6EVgLXhA",
+      "item_id": "fOhnSqmO4XY5vSI8whVKSA",
+      "output": {
+        "stars": 4.0,
+        "review": "[Mock holdout] Solid spot, would return."
+      },
+      "elapsed_sec": 0.33,
+      "error": null,
+      "crew_fallback": false
+    }
+  ],
+  "generalization_gap": 0.0
+}
